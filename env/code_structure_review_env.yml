@@ -1,0 +1,12 @@
+name: code_structure_review_env
+dependencies:
+  # The python interpreter version.
+  - python=3.8
+
+  - pip
+  - pip:
+      - graphviz
+      - pysnooper
+
+channels:
+  - conda-forge
