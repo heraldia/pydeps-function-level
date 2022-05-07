@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+function-call.gv.pdf
+.gitignore
+xresult.txt
+.gitignore
+function-call.gv
+buffer_ks.txt
+changelog.md
