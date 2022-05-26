@@ -1,8 +1,8 @@
 
 #target_dir = '/Users/y0f00k5/Documents/b/w/topK/driving-distance-Repos/DrivingDistanceAzureML/src/'
-#target_dir = '/Users/y0f00k5/Documents/b/w/ReqHelper/Hiring-Req-Helper-MLE-Service/'
-#target_dir = '/Users/y0f00k5/Documents/b/w/SCPH/scph-forecaster/src/'
+target_dir = '/Users/y0f00k5/Documents/b/w/SCPH/scph-forecaster/src/'
 target_dir = '/Users/y0f00k5/Documents/b/w/ReqHelper/Hiring-Prompt-To-Hire/data_science/'
+target_dir = '/Users/y0f00k5/Documents/b/w/ReqHelper/Hiring-Req-Helper-MLE-Service/'
 
 import os
 import sys
@@ -36,7 +36,7 @@ def traverFilesInFolder(target_dir):
                             class_set.add(t)
                         else:
                             t = row.replace('def ','').strip()
-                            i = t.index('(') 
+                            i = t.find('(') 
 
                             function_set.add(os.path.join(root,fn).replace(target_dir, "")+"-"+t[:i])
 
@@ -87,7 +87,7 @@ def traverFilesInFolder(target_dir):
                             method_definition = False
                         else:
                             t = row.replace('def ','').strip()
-                            i = t.index('(') 
+                            i = t.find('(') 
                             cur_function_name = os.path.join(root,fn).replace(target_dir,"") + '-' + str(t[:i])
                             method_definition = True
                             class_definition = False
@@ -101,13 +101,12 @@ def traverFilesInFolder(target_dir):
                         continue
                         
                     for _func in function_set:
-                        func = _func[_func.index('-')+1:]
+                        func = _func[_func.find('-')+1:]
                         for func in [func+'(', func+',', func+' (', func+' ,']:
                             if func in row:
-                                
                                 function_callable_dic.setdefault(cur_function_name, []).append(_func)
 
-    print(sys._getframe().f_lineno,'| function_callable_dic', function_callable_dic) # 2022_0413_1210
+    #print(sys._getframe().f_lineno,'| function_callable_dic', function_callable_dic) # 2022_0413_1210
 
     return function_callable_dic
 
@@ -123,8 +122,10 @@ def render_function_callable_dic(function_callable_dic):
 
         if k.endswith('.py'):
             dot.attr('node', shape='doublecircle')
+        elif k.endswith('.ipynb'):
+            dot.attr('node', shape='rectangle') 
         else:
-            dot.attr('node', shape='rectangle')
+            dot.attr('node', shape='') 
 
         dot.node(k)
 
@@ -138,6 +139,9 @@ def render_function_callable_dic(function_callable_dic):
 
     dot.render('./function-call.gv').replace('\\', '/')
 
-function_callable_dic = traverFilesInFolder(target_dir)
-render_function_callable_dic(function_callable_dic)
+if __name__ == '__main__':
+    if not target_dir.endswith('/'):
+        target_dir += '/'
+    function_callable_dic = traverFilesInFolder(target_dir)
+    render_function_callable_dic(function_callable_dic)
 

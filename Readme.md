@@ -1,4 +1,4 @@
-# Python Function Dependency graphs
+# Python Function Dependency Graphs
 - Code Structure Reviewer 
 
 This is to plot dependency graphs at function level. [Python Function Dependency graphs](https://github.com/heraldia/pydeps-function-level)
@@ -11,9 +11,10 @@ This is to plot dependency graphs at module/python-file level.
 ```sh
 conda env update -f env/code_structure_review_env.yml
 conda activate code_structure_review_env
+python codeStructureReivewer.py
 ```
 
-# Enhancement changlog
+# Enhancement changelog
 - Jupyter Notebook
 - avoid functionName in comments
 - eliminating edge cases:
@@ -31,7 +32,7 @@ def wfp_check(loaded_model_3,loaded_fe_3):
     share_wfp = loaded_model_3.rec_df[loaded_model_3.rec_df['STORE_NBR'].isin(pilot_stores)].merge(
         loaded_model_3.cp_workgroup_dim_df,on='WORKGROUP_ID').merge(
         loaded_model_3.cp_job_selection_dim_df,on='JOB_SELECTION_ID')
-    def formating(r):
+    def formatting(r):
         pos = str(int(r['NUM_OF_POS']))
 ```
 
