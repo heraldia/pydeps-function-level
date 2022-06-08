@@ -35,8 +35,8 @@ def wfp_check(loaded_model_3,loaded_fe_3):
     def formatting(r):
         pos = str(int(r['NUM_OF_POS']))
 ```
-
+- Analyze a certain script
 
 # Info
 Project starts at 2022_0413_1108  
-yunfei.feng@walmart.com
+
