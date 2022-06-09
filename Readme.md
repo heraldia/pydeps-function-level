@@ -14,7 +14,7 @@ conda activate code_structure_review_env
 python codeStructureReivewer.py
 ```
 # Usage
-Only one argument need to give: target_dir in codeStructureReivewer.py
+Only one argument is needed to give: target_dir in codeStructureReivewer.py
 
 # Enhancement changelog
 - Jupyter Notebook
