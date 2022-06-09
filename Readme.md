@@ -13,6 +13,8 @@ conda env update -f env/code_structure_review_env.yml
 conda activate code_structure_review_env
 python codeStructureReivewer.py
 ```
+# Usage
+Only one argument need to give: target_dir in codeStructureReivewer.py
 
 # Enhancement changelog
 - Jupyter Notebook
@@ -38,5 +40,5 @@ def wfp_check(loaded_model_3,loaded_fe_3):
 - Analyze a certain script
 
 # Info
-Project starts at 2022_0413_1108  
+Project starts at 2022_0413_1108 CT
 
