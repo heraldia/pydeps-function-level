@@ -1,7 +1,7 @@
 # Python Function Dependency Graphs
 - Code Structure Reviewer 
 
-This is to plot dependency graphs at function level. [Python Function Dependency graphs](https://github.com/heraldia/pydeps-function-level)
+This is to plot dependency graphs at function level in a hawk eye view. [Python Function Dependency graphs](https://github.com/heraldia/pydeps-function-level)
 
 # Another sister project
 This is to plot dependency graphs at module/python-file level. 

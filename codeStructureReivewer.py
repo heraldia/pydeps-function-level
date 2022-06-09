@@ -1,8 +1,12 @@
 
-target_dir = '/Users/y0f00k5/Documents/b/w/SCPH/scph-forecaster/src/'
-target_dir = '/Users/y0f00k5/Documents/b/w/ReqHelper/Hiring-Req-Helper-MLE-Service/'
 target_dir = '/Users/y0f00k5/Documents/b/w/ReqHelper/Hiring-Prompt-To-Hire/data_science/'
 target_dir = '/Users/y0f00k5/Documents/b/w/topK/driving-distance-Repos/DrivingDistanceAzureML/src/'
+target_dir = '/Users/y0f00k5/Documents/b/w/SCPH/scph-forecaster/src/'
+target_dir = '/Users/y0f00k5/Documents/b/w/ReqHelper/Hiring-Req-Helper-MLE-Service/'
+
+Flag_analyze_a_certain_script = False
+#Flag_analyze_a_certain_script = True
+filename_of_this_certian_script = 'utils.py'
 
 import os
 import sys
@@ -13,10 +17,6 @@ import pysnooper
 
 function_set = set()
 class_set = set()
-
-Flag_analyze_a_certain_script = False
-#Flag_analyze_a_certain_script = True
-filename_of_this_certian_script = 'utils.py'
 
 def traverFilesInFolder(target_dir):
     # get all classNames and functionNames
