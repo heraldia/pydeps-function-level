@@ -39,6 +39,9 @@ def wfp_check(loaded_model_3,loaded_fe_3):
 ```
 - Analyze a certain script
 
+# Sample structure diagram
+![](./screenshot/sample.png)
+
 # Info
 Project starts at 2022_0413_1108 CT
 
