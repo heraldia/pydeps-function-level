@@ -1,13 +1,14 @@
 
-target_dir = '/Users/y0f00k5/Documents/b/w/topK/driving-distance-Repos/DrivingDistanceAzureML/src/'
-target_dir = '/Users/y0f00k5/Documents/b/w/ReqHelper/Hiring-Prompt-To-Hire/data_science/'
-target_dir = '/Users/y0f00k5/Documents/b/w/SCPH/scph-forecaster/src/'
-target_dir = '/Users/y0f00k5/Documents/b/w/ReqHelper/Hiring-Req-Helper-MLE-Service/'
-target_dir = '/Users/y0f00k5/Documents/b/github/dcase2022_task1_baseline'
+#target_dir = '/Users/y0f00k5/Documents/b/w/topK/driving-distance-Repos/DrivingDistanceAzureML/src/'
+#target_dir = '/Users/y0f00k5/Documents/b/w/ReqHelper/Hiring-Prompt-To-Hire/data_science/'
+#target_dir = '/Users/y0f00k5/Documents/b/w/SCPH/scph-forecaster/src/'
+#target_dir = '/Users/y0f00k5/Documents/b/w/ReqHelper/Hiring-Req-Helper-MLE-Service/'
+#target_dir = '/Users/y0f00k5/Documents/b/github/dcase2022_task1_baseline'
+target_dir = '/Users/y0f00k5/Documents/githubProject/Wav2Lip'
 
-Flag_analyze_a_certain_script = False
 Flag_analyze_a_certain_script = True
-filename_of_this_certian_script = 'utils.py'
+Flag_analyze_a_certain_script = False
+filename_of_this_certain_script = 'utils.py'
 
 import os
 import sys
@@ -29,7 +30,7 @@ def traverFilesInFolder(target_dir):
 
             # Analyze a certain script !!!!!
 
-            if Flag_analyze_a_certain_script and filename_of_this_certian_script not in os.path.join(root,fn):
+            if Flag_analyze_a_certain_script and filename_of_this_certain_script not in os.path.join(root,fn):
                 continue
 
             with open(os.path.join(root,fn), 'r', encoding='utf-8') as f:
