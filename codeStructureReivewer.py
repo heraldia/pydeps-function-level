@@ -1,10 +1,9 @@
 
-#target_dir = '/Users/y0f00k5/Documents/b/w/topK/driving-distance-Repos/DrivingDistanceAzureML/src/'
-#target_dir = '/Users/y0f00k5/Documents/b/w/ReqHelper/Hiring-Prompt-To-Hire/data_science/'
-#target_dir = '/Users/y0f00k5/Documents/b/w/SCPH/scph-forecaster/src/'
-#target_dir = '/Users/y0f00k5/Documents/b/w/ReqHelper/Hiring-Req-Helper-MLE-Service/'
-#target_dir = '/Users/y0f00k5/Documents/b/github/dcase2022_task1_baseline'
-target_dir = '/Users/y0f00k5/Documents/githubProject/Wav2Lip'
+target_dir = '/Users/y0f00k5/Documents/w/SCPH/scph-forecaster/src/'
+#target_dir = '/Users/y0f00k5/Documents/w/topK/driving-distance-Repos/DrivingDistanceAzureML/src/DriveDistance'
+#target_dir = '/Users/y0f00k5/Documents/w/ReqHelper/Hiring-Prompt-To-Hire/data_science/'
+#target_dir = '/Users/y0f00k5/Documents/w/ReqHelper/Hiring-Req-Helper-MLE-Service/'
+#target_dir = '/Users/y0f00k5/Documents/w/mmm/Mentor_Mentee_Match_wcnp/src/'
 
 Flag_analyze_a_certain_script = True
 Flag_analyze_a_certain_script = False
@@ -24,7 +23,7 @@ def traverFilesInFolder(target_dir):
     # get all classNames and functionNames
     for root, dirs, files in os.walk(target_dir, topdown=False):
         for fn in files:
-            if not fn.endswith('.py'):
+            if not fn.endswith('.py') or 'deleted_' in fn:
                 continue
             #print (os.path.join(root,fn))
 
@@ -34,19 +33,25 @@ def traverFilesInFolder(target_dir):
                 continue
 
             with open(os.path.join(root,fn), 'r', encoding='utf-8') as f:
-                for row in f:
-                    #print(sys._getframe().f_lineno,'| row',row  ); import pdb;pdb.set_trace() # 2022_0506_1927 
+                try:
+                    for row in f:
+                        #print(sys._getframe().f_lineno,'| row: ',row  ); import pdb;pdb.set_trace() # 2022_0506_1927 
 
-                    if re.match("\s*def", row) or re.match("\s*class", row):
-                        if 'class' in row:
-                            t = row.replace('class ','').rstrip(":").strip()
-                            #class_set.add(os.path.join(root,fn)+":"+t)
-                            class_set.add(t)
-                        else:
-                            t = row.replace('def ','').strip()
-                            i = t.find('(') 
+                        row = str(row).encode('utf-8').strip().decode('utf-8')
 
-                            function_set.add(os.path.join(root,fn).replace(target_dir, "")+"-"+t[:i])
+                        if re.match("\s*def", row) or re.match("\s*class", row):
+                            if 'class' in row:
+                                t = row.replace('class ','').rstrip(":").strip()
+                                #class_set.add(os.path.join(root,fn)+":"+t)
+                                class_set.add(t)
+                            else:
+                                t = row.replace('def ','').strip()
+                                i = t.find('(') 
+
+                                function_set.add(os.path.join(root,fn).replace(target_dir, "")+"-"+t[:i])
+                except Exception as e:
+                    print(52, e)
+
 
     print('class_set | ', class_set) # 2022_0413_1125
     print('function_set | ', function_set) # 2022_0413_1125
