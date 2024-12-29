@@ -1,9 +1,8 @@
-
-target_dir = '/Users/y0f00k5/Documents/w/SCPH/scph-forecaster/src/'
+#target_dir = '/Users/y0f00k5/Documents/w/SCPH/scph-forecaster/src/'
 #target_dir = '/Users/y0f00k5/Documents/w/topK/driving-distance-Repos/DrivingDistanceAzureML/src/DriveDistance'
 #target_dir = '/Users/y0f00k5/Documents/w/ReqHelper/Hiring-Prompt-To-Hire/data_science/'
-#target_dir = '/Users/y0f00k5/Documents/w/ReqHelper/Hiring-Req-Helper-MLE-Service/'
-#target_dir = '/Users/y0f00k5/Documents/w/mmm/Mentor_Mentee_Match_wcnp/src/'
+#target_dir = '/Users/y0f00k5/Documents/w/CallRouting/people-ai-airflow'
+target_dir = '/Users/y0f00k5/Documents/w/CallRouting/genai'
 
 Flag_analyze_a_certain_script = True
 Flag_analyze_a_certain_script = False
@@ -28,7 +27,6 @@ def traverFilesInFolder(target_dir):
             #print (os.path.join(root,fn))
 
             # Analyze a certain script !!!!!
-
             if Flag_analyze_a_certain_script and filename_of_this_certain_script not in os.path.join(root,fn):
                 continue
 
@@ -119,7 +117,7 @@ def traverFilesInFolder(target_dir):
                             if func in row:
                                 function_callable_dic.setdefault(cur_function_name, []).append(_func)
 
-    #print(sys._getframe().f_lineno,'| function_callable_dic', function_callable_dic) # 2022_0413_1210
+    print(sys._getframe().f_lineno,'| function_callable_dic', function_callable_dic) # 2022_0413_1210
 
     return function_callable_dic
 
@@ -151,6 +149,7 @@ def render_function_callable_dic(function_callable_dic):
             edge_set.add((k,v))
 
     dot.render('./function-call.gv').replace('\\', '/')
+
 
 if __name__ == '__main__':
     if not target_dir.endswith('/'):
