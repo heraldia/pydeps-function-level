@@ -13,6 +13,7 @@ conda env update -f env/code_structure_review_env.yml
 conda activate code_structure_review_env
 python codeStructureReivewer.py
 ```
+
 # Usage
 Only one argument is needed to give: target_dir in codeStructureReivewer.py
 
